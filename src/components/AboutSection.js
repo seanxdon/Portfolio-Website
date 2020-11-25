@@ -4,13 +4,14 @@ import home1 from '../img/home1.png'
 import styled from 'styled-components';
 import {AboutStyled, DescriptionStyled, ImageStyled, Hide } from '../styles'
 
+
 const AboutSection = () => {
   return ( 
     <AboutStyled>
       <DescriptionStyled>
         <div className="title">
           <Hide>
-            <h2>We work to make</h2>
+            <motion.h2>We work to make</motion.h2>
           </Hide>
           <Hide>
             <h2>your <span>dreams</span> come</h2>
