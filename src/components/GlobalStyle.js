@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
         color: #23d997;
     }
     a{
-        font-size: 1.1.rem;
+        font-size: 1.1rem;
     }
 `;
 export default GlobalStyle;
