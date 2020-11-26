@@ -1,55 +1,76 @@
-//STYLED COMPONENTS
+import React from 'react';
+import { About } from '../styles';
 import styled from 'styled-components';
-import { AboutStyled } from '../styles';
+import Toggle from './Toggle';
+import { AnimateSharedLayout } from 'framer-motion';
+//Scroll animation
+import { reveal } from '../animation';
+import { useScroll } from './useScroll';
 
 const FaqSection = () => {
-  return(
-    <Faq>
-      <h2>Any Questions <span>FAQ</span></h2>
-      <div className="question">
-        <h4>How Do I Start? </h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ipsum.</p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="question">
-        <h4>Daily Schedule</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ipsum.</p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="question">
-        <h4>Different Payment methods</h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ipsum.</p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="question">
-        <h4>What Products do you offer? </h4>
-        <div className="answer">
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, ipsum.</p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-    </Faq>
-  )
-}
+  const [element, controls] = useScroll();
+  return (
+    <Faq
+      transition={{ duration: 0.5 }}
+      ref={element}
+      animate={controls}
+      initial="hidden"
+      variants={reveal}
+    >
+      <h2>
+        Any Questions? <span>FAQ</span>
+      </h2>
 
-const Faq = styled(AboutStyled)`
+      <AnimateSharedLayout>
+        <Toggle title="How Do I Start?">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+              reprehenderit perferendis sunt magni dolores ratione.
+            </p>
+          </div>
+        </Toggle>
+        <Toggle title="What Products do you offer?">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+              reprehenderit perferendis sunt magni dolores ratione.
+            </p>
+          </div>
+        </Toggle>
+        <Toggle title="Diferrent Payment Methods">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+              reprehenderit perferendis sunt magni dolores ratione.
+            </p>
+          </div>
+        </Toggle>
+        <Toggle title="Daily Schedule">
+          <div className="answer">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+              reprehenderit perferendis sunt magni dolores ratione.
+            </p>
+          </div>
+        </Toggle>
+      </AnimateSharedLayout>
+    </Faq>
+  );
+};
+const Faq = styled(About)`
   display: block;
   span {
     display: block;
+    color: #23d997;
   }
-  h2{
-    padding-bottom: 2rem;
+  h2 {
     font-weight: lighter;
+    padding-bottom: 4rem;
   }
   .faq-line {
     background: #cccccc;
@@ -57,15 +78,12 @@ const Faq = styled(AboutStyled)`
     margin: 2rem 0rem;
     width: 100%;
   }
-  .question {
-     padding: 3rem 0rem;
-     cursor: pointer; 
-  }
   .answer {
     padding: 2rem 0rem;
     p {
       padding: 1rem 0rem;
     }
   }
-`
+`;
+
 export default FaqSection;

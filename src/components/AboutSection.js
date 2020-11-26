@@ -1,35 +1,45 @@
-//IMAGES
-import home1 from '../img/home1.png'
-//STYLED COMPONENTS
+import React from 'react';
+import { About, Description, Image } from '../styles';
 import styled from 'styled-components';
-import {AboutStyled, DescriptionStyled, ImageStyled, Hide } from '../styles'
-//FRAMER MOTION ANIMATIONS 
-import { motion } from 'framer-motion'
+//Images
+import homeImg1 from '../img/home1.png';
+import { titleAnim, fade, photoAnim } from '../animation';
+import { motion } from 'framer-motion';
+import Wave from './Wave';
 
 const AboutSection = () => {
-
-  return ( 
-    <AboutStyled>
-      <DescriptionStyled>
+  return (
+    <About>
+      <Description>
         <div className="title">
           <Hide>
-            <motion.h2>We work to make</motion.h2>
+            <motion.h2 variants={titleAnim}>We work to make</motion.h2>
           </Hide>
           <Hide>
-            <motion.h2>your <span>dreams</span> come</motion.h2>
+            <motion.h2 variants={titleAnim}>
+              your <span>dreams</span> come
+            </motion.h2>
           </Hide>
           <Hide>
-            <motion.h2>true.</motion.h2>
+            <motion.h2 variants={titleAnim}>true.</motion.h2>
           </Hide>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium in voluptatum ad ut neque possimus, velit laborum suscipiton.</p>
-        <button>Contact Us</button>
-      </DescriptionStyled>
-      <ImageStyled>
-        <img src={home1} alt="Guy With Camera"/>
-      </ImageStyled>
-    </AboutStyled>
-  )
-}
+        <motion.p variants={fade}>
+          Contact us for any photography or videography ideas that you have. We
+          have professionals with amazing skills to help you achieve it.
+        </motion.p>
+        <motion.button variants={fade}>Contact Us</motion.button>
+      </Description>
+      <Image>
+        <motion.img variants={photoAnim} src={homeImg1} alt="camera guy" />
+      </Image>
+      <Wave />
+    </About>
+  );
+};
+
+const Hide = styled.div`
+  overflow: hidden;
+`;
 
 export default AboutSection;
