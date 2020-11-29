@@ -1,6 +1,7 @@
 import React from 'react';
 import { About, Description, Image, Header } from '../styles';
 import styled from 'styled-components';
+import { Link, useHistory } from 'react-router-dom';
 //Images
 import seancartoon from '../img/sean-cartoon.png';
 import { titleAnim, fade, photoAnim } from '../animation';
@@ -13,25 +14,23 @@ const AboutSection = () => {
 			<Description>
 				<div className='title'>
 					<Hide>
-						<Header variants={titleAnim}>Software Engineer</Header>
-					</Hide>
-					<Hide>
 						<Header variants={titleAnim}>
-							Based in <span>Orange County</span>,
+							Hi! I'm <span>Sean McDaniel</span>
 						</Header>
 					</Hide>
 					<Hide>
-						<Header variants={titleAnim}>California.</Header>
+						<Header variants={titleAnim}>
+							Software Engineer Based in Orange County, CA
+						</Header>
 					</Hide>
 				</div>
-				<Para variants={fade}>Hi! I'm Sean McDaniel,</Para>
+				{/* <Para variants={fade}>Hi! I'm Sean McDaniel,</Para> */}
 				<Para variants={fade}>
-					An ambitious developer with over 2 years of experience designing
-					websites professionally as a front-end engineer. I specialize in
-					building product with the quality of today with the technology of
-					tomorrow.
+					2 years of experience designing websites professionally as a front-end
+					engineer. I specialize in building products with the quality of today
+					with the technology of tomorrow.
 				</Para>
-				<motion.button variants={fade}>Contact Us</motion.button>
+				<motion.button variants={fade}>View Projects</motion.button>
 			</Description>
 			<Image>
 				<motion.img variants={photoAnim} src={seancartoon} alt='sean-cartoon' />
@@ -46,11 +45,8 @@ const Hide = styled.div`
 `;
 
 const Para = styled.p`
-	padding: 0rem;
-	padding-top: 2rem;
-	p {
-		padding-bottom: 2rem;
-	}
+	padding: 2rem 0rem;
+	color: #fff;
 `;
 
 export default AboutSection;
