@@ -3,19 +3,20 @@ import styled from 'styled-components';
 import { Link, useHistory } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+//Nav Component
 const Nav = () => {
 	const history = useHistory();
 	const activePath = history.location.pathname;
 	return (
 		<StyledNav>
 			<h1>
-				<Link id='logo' to='/'>
+				<Link id="logo" to="/">
 					Sean McDaniel
 				</Link>
 			</h1>
 			<ul>
 				<li>
-					<Link to='/'>1. About us</Link>
+					<Link to="/">1. About us</Link>
 					<Line
 						transition={{ duration: 0.75 }}
 						initial={{ width: '0%' }}
@@ -23,7 +24,7 @@ const Nav = () => {
 					/>
 				</li>
 				<li>
-					<Link to='/work'>2. Our Work</Link>
+					<Link to="/work">2. Our Work</Link>
 					<Line
 						transition={{ duration: 0.75 }}
 						initial={{ width: '0%' }}
@@ -31,7 +32,7 @@ const Nav = () => {
 					/>
 				</li>
 				<li>
-					<Link to='/contact'>1. Contact Us</Link>
+					<Link to="/contact">1. Contact Us</Link>
 					<Line
 						transition={{ duration: 0.75 }}
 						initial={{ width: '0%' }}
